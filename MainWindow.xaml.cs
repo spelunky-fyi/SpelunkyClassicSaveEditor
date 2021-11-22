@@ -64,10 +64,62 @@ namespace SpelunkyClassicSaveEditor
             SpelunkySaveManager.SetMinigames(sun, moon, stars);
         }
 
+        private static string Max(string a, string b)
+        {
+            return Math.Max(UInt32.Parse(a), UInt32.Parse(b)).ToString();
+        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private static string Min(string a, string b)
+        {
+            return Math.Min(UInt32.Parse(a), UInt32.Parse(b)).ToString();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
             this.SaveToRegistry();
+            // Make sure we display the most up to date information
+            this.LoadFromRegistry();
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            this.LoadFromRegistry();
+        }
+        private void Lock_Shortcuts_Click(object sender, RoutedEventArgs e)
+        {
+            this.TextboxTunnel1.Text = "100001";
+            this.TextboxTunnel2.Text = "200001";
+        }
+        private void Unlock_Shortcuts_Click(object sender, RoutedEventArgs e)
+        {
+            this.TextboxTunnel1.Text = "0";
+            this.TextboxTunnel2.Text = "0";
+        }
+
+        private void Unlock_Challenges_Click(object sender, RoutedEventArgs e)
+        {
+            this.TextboxScore.Text = MainWindow.Max(this.TextboxScore.Text, "200000");
+            if (this.TextboxTime.Text.Equals("0"))
+            {
+                this.TextboxTime.Text = "599";
+            }
+            else
+            {
+                this.TextboxTime.Text = MainWindow.Min(this.TextboxTime.Text, "599");
+
+            }
+            this.TextboxKills.Text = MainWindow.Max(this.TextboxKills.Text, "120");
+        }
+
+        private void Unlock_Damsel_Click(object sender, RoutedEventArgs e)
+        {
+            this.TextboxSaves.Text = MainWindow.Max(this.TextboxSaves.Text, "8");
+        }
+
+        private void Unlock_Tunnelman_Click(object sender, RoutedEventArgs e)
+        {
+            this.Unlock_Challenges_Click(sender, e);
+            this.Unlock_Damsel_Click(sender, e);
         }
     }
 }

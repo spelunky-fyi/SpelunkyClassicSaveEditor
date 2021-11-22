@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SpelunkyClassicSaveEditor"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="SpelunkyClassicSaveEditor.MainWindow"
         mc:Ignorable="d"
-        Title="Spelunky Classic Save Editor" Height="514.291" Width="301.75">
+        Title="Spelunky Classic Save Editor" Height="540" Width="524.855" ResizeMode="NoResize">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -21,11 +21,14 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="100*"/>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="269*"/>
         </Grid.ColumnDefinitions>
 
@@ -53,7 +56,19 @@
         <xctk:DecimalUpDown x:Name="TextboxSunChallenge" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="9" VerticalAlignment="Center" Width="120" Minimum="0" Maximum="99"/>
         <xctk:DecimalUpDown x:Name="TextboxMoonChallenge" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Center" Width="120" Minimum="0" Maximum="99"/>
         <xctk:DecimalUpDown x:Name="TextboxStarsChallenge" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="11" VerticalAlignment="Center" Width="120" Minimum="0" Maximum="99"/>
-        <Button Grid.ColumnSpan="2" Content="Save!" HorizontalAlignment="Stretch" Height="70" Margin="10, 10, 10, 10" Grid.Row="12" VerticalAlignment="Top" Grid.RowSpan="2" Click="Button_Click"/>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" Grid.RowSpan="12">
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        </StackPanel>
+        <Separator Height="16" Margin="0" VerticalAlignment="Top" Grid.Row="12" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Stretch" />
+        <Button Grid.ColumnSpan="4" Content="Save!" HorizontalAlignment="Stretch" Height="70" Margin="10, 10, 10, 10" Grid.Row="13" VerticalAlignment="Top" Grid.RowSpan="2" Click="Save_Click"/>
+
+        <Button Content="Refresh" Click="Refresh_Click" Grid.Column="3" Margin="10" Grid.RowSpan="2"/>
+        <Button Content="Lock Shortcuts" Click="Lock_Shortcuts_Click" Grid.Column="3" Margin="10" Grid.RowSpan="2" Grid.Row="2"/>
+        <Button Content="Unlock Shortcuts" Click="Unlock_Shortcuts_Click" Grid.Column="3" Margin="10" Grid.RowSpan="2" Grid.Row="4"/>
+        <Button Content="Unlock Challenges" Click="Unlock_Challenges_Click" Grid.Column="3" Margin="10" Grid.RowSpan="2" Grid.Row="6"/>
+        <Button Content="Unlock Damsel" Click="Unlock_Damsel_Click" Grid.Column="3" Margin="10" Grid.RowSpan="2" Grid.Row="8"/>
+        <Button Content="Unlock Tunnelman" Click="Unlock_Tunnelman_Click" Grid.Column="3" Margin="10" Grid.RowSpan="2" Grid.Row="10"/>
+
 
 
     </Grid>
